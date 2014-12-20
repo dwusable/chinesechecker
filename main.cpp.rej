@@ -1,0 +1,186 @@
+diff a/main.cpp b/main.cpp	(rejected hunks)
+@@ -5,11 +6,182 @@
++#include "include/Board.h"
++#include "include/Match.h"
++#include "include/Cpu.h"
++#include "include/Person.h"
+ #include <iostream>
+ #include <stdio.h>
++#include <vector>
+ using namespace std;
++using std::vector;
++enum colors{
++    GREEN = 0,
++    YELLOW,
++    RED,
++    ORANGE,
++    BLUE,
++    PURPLE
++    };
+ 
+-int main()
++vector<Player*>& createPlayers(int number);
++string chooseColor(int number);
++void drawBoard();
++void createMatch(int numPlayers);
++ int main()
+ {
+-    cout << "Hello world!" << endl;
++    int numPlayers;
++    cout << "****************CHINESE CHECKERS****************" << endl;
++
++    cout << "How many players(MAX 6):";
++    cin >> numPlayers;
++    createMatch(numPlayers);
++    drawBoard();
+     getchar();
+     return 0;
++}
++
++void createMatch(int numPlayers)
++{
++    vector<Player*> players = createPlayers(numPlayers);
++}
++
++vector<Player*>& createPlayers(int number)
++{
++    vector<Player*> players;
++    Player* player;jcr1707z
++    string isThisHome;
++    string isCpu;
++    bool home = false;
++    bool CpuSelected = false;
++    for(int i=0; i < number; i++)
++    {
++        if(i == 0)
++        {
++           home = true;
++        }
++
++        if(CpuSelected == false)
++        {
++            cout << "Is CPU(yes/no):";
++            cin >> isCpu;
++            if(isCpu == "yes")
++            {
++                player = new Cpu("C"+i, chooseColor(i), home);
++                CpuSelected = true;
++            }
++            else
++            {
++                player = new Person("P"+i, chooseColor(i), home);
++            }
++        }
++        else
++        {
++            player = new Person("P"+i, chooseColor(i), home);
++        }
++
++        players.insert(player);
++        home = false;
++    }
++}
++
++string chooseColor(int number)
++{
++    string color;
++    switch(number)
++    {
++        case GREEN:
++            color = "G";
++            break;
++        case YELLOW:
++            color = "Y";
++            break;
++        case RED:
++            color = "R";
++            break;
++        case ORANGE:
++            color = "O";
++            break;
++        case BLUE:
++            color = "B";
++            break;
++        default:
++            color = "P";
++            break;
++    }
++    return color;
++}
++void drawBoard()
++{
++    cout << endl << endl;
++    Board* board = new Board();
++    /*for(int i = 0; i < board->ROWS; i++)
++    {
++        for(int j = 0; j < board->COLUMNS; j++)
++        {
++            if(board->MAP[i][j] != -1 )
++            {
++                cout << "|__|";
++            }
++            else
++            {
++                cout << "  ";
++            }
++        }
++        cout << endl << endl;
++
++    }
++    */
++    //Chinese Board
++    string space;
++    for(int i = 0; i < 17; i++)
++    {
++        if(i==0 || i==16)
++        {
++            space = "                        ";
++        }
++
++        else if (i == 1 || i == 15)
++        {
++            space = "                      ";
++        }
++        else if (i == 2 || i == 14)
++        {
++            space = "                    ";
++        }
++
++        else if (i == 3 || i == 13)
++        {
++            space = "                  ";
++        }
++
++        else if (i == 5 || i == 11)
++        {
++            space = "  ";
++        }
++
++        else if (i == 6 || i == 10)
++        {
++            space = "    ";
++        }
++
++        else if (i == 7 || i == 9)
++        {
++            space = "      ";
++        }
++
++        else if (i == 8)
++        {
++            space = "        ";
++        }
++
++        cout << space +"        ";
+ 
++        for(int j = 0; j < 13; j++)
++        {
++            if(board->map[i][j]->isValid())
++            {
++                cout << "|__|";
++            }
++        }
++        cout << endl << endl;
++        space = "";
++    }
+ }

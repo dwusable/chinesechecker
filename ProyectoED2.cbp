@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ProyectoED2" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/ProyectoED2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/ProyectoED2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/Board.h" />
+		<Unit filename="include/Cell.h" />
+		<Unit filename="include/Cpu.h" />
+		<Unit filename="include/Match.h" />
+		<Unit filename="include/Person.h" />
+		<Unit filename="include/Piece.h" />
+		<Unit filename="include/Player.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Board.cpp" />
+		<Unit filename="src/Cell.cpp" />
+		<Unit filename="src/Cpu.cpp" />
+		<Unit filename="src/Match.cpp" />
+		<Unit filename="src/Person.cpp" />
+		<Unit filename="src/Piece.cpp" />
+		<Unit filename="src/Player.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

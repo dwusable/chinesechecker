@@ -1,0 +1,9 @@
+diff a/include/Board.h b/include/Board.h	(rejected hunks)
+@@ -7,7 +7,6 @@
+     public:
+         Board();
+         virtual ~Board();
+-        //static int MAP[ROWS][COLUMNS];
+         static const int ROWS = 17;
+         static const int COLUMNS = 17;
+         static int MAP[ROWS][COLUMNS];
